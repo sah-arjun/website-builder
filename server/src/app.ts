@@ -17,7 +17,7 @@ app.use(logger);
 
 app.use('/api/auth', authRouter);
 app.use('/api/pages', pageRouter);
-app.use('/api/block', blockRouter);
+app.use('/api/blocks', blockRouter);
 
 app.use(notFound);
 app.use(errorHandler);

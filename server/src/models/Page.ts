@@ -3,6 +3,7 @@ import { toJSONPlugin } from '../plugins/toJSON.plugin';
 
 const PageSchema = new mongoose.Schema({
   title: String,
+  blocks: Array,
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 }, { timestamps: true });
 

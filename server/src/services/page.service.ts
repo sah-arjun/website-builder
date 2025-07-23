@@ -3,7 +3,7 @@ import Page from '../models/Page';
 // Create a new page with optional blocks
 export const createPageService = async (userId: string, title: string, blocks = []) => {
   const newPage = new Page({
-    user: userId,
+    userId,
     title,
     blocks,
   });

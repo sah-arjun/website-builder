@@ -9,11 +9,9 @@ import { protectedRoute } from '../middlewares/auth.middleware';
 
 const pageRouter = Router();
 
-pageRouter.use(protectedRoute);
-
-pageRouter.post('/', createPage);
-pageRouter.get('/', getMyPages);
-pageRouter.get('/:id', getPageById);
-pageRouter.put('/:id', updatePage);
+pageRouter.post('/', protectedRoute, createPage);
+pageRouter.get('/', protectedRoute, getMyPages);
+pageRouter.get('/:id', protectedRoute, getPageById);
+pageRouter.put('/:id', protectedRoute, updatePage);
 
 export default pageRouter;

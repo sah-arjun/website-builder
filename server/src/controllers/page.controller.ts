@@ -4,7 +4,9 @@ import { createPageService, getUserPagesService, getPageByIdService, updatePageS
 export const createPage = async (req: Request, res: Response) => {
   try {
     const { title, blocks } = req.body;
-    const page = await createPageService((req as any).userId, title, blocks);
+    const userId = (req as any).userId;
+    console.log(title, blocks, userId);
+    const page = await createPageService(userId, title, blocks);
     res.status(201).json(page);
   } catch (error: any) {
     res.status(500).json({ message: 'Failed to create page', error: error.message });
