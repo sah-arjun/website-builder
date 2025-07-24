@@ -19,7 +19,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (user) {
       getPages()
-        .then(setPages)
+        .then(data => setPages(data))
         .catch((err) => console.error('Failed to fetch pages:', err));
     }
   }, [user]);
@@ -46,9 +46,9 @@ const Dashboard = () => {
           <ul className="space-y-2">
             {pages.map((page) => (
               <li
-                key={page._id}
+                key={page.id}
                 className="p-3 border rounded cursor-pointer hover:bg-gray-100"
-                onClick={() => router.push(`/pages/${page._id}/blocks`)}
+                onClick={() => router.push(`/pages/${page.id}`)}
               >
                 {page.title || 'Untitled Page'}
               </li>

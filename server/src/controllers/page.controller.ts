@@ -15,7 +15,9 @@ export const createPage = async (req: Request, res: Response) => {
 
 export const getMyPages = async (req: Request, res: Response) => {
   try {
+    console.log('req ', req);
     const pages = await getUserPagesService((req as any).userId);
+    console.log('resPages ', pages);
     res.json(pages);
   } catch (error: any) {
     res.status(500).json({ message: 'Failed to fetch pages', error: error.message });

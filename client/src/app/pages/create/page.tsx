@@ -21,7 +21,7 @@ const CreatePage = () => {
     setError(null);
     try {
       const newPage = await createPage(title.trim(), []);
-      router.push(`/pages/${newPage._id}/blocks`);
+      router.push(`/pages/${newPage.id}`);
     } catch (err: any) {
       setError(err?.message || 'Failed to create page');
     } finally {
